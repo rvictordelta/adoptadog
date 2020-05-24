@@ -11,7 +11,7 @@ from creds import u, p, recipients
 
 def dog_scrape():
     # go to shell website to get authkey
-    url = "https://wright-wayrescue.org/adoptable-dogs"
+    url = "https://wright-wayrescue.org/adoptable-pets"
     driver = webdriver.Chrome()
     driver.get(url)
     target = driver.find_element_by_class_name("main-content")
@@ -25,7 +25,7 @@ def dog_scrape():
         found = '' # apply your error handling
 
     # go to target petango website with the authkey
-    petango_url = f"https://ws.petango.com/webservices/adoptablesearch/wsAdoptableAnimals.aspx?species=Dog&gender=A&agegroup=OverYear&location=&site=&onhold=A&orderby=name&colnum=3&css=http://ws.petango.com/WebServices/adoptablesearch/css/styles.css&authkey={found}&recAmount=&detailsInPopup=No&featuredPet=Include&stageID=&wmode=opaque"
+    petango_url = f"https://ws.petango.com/webservices/adoptablesearch/wsAdoptableAnimals.aspx?species=Dog&gender=A&agegroup=UnderYear&location=&site=&onhold=A&orderby=name&colnum=3&css=http://ws.petango.com/WebServices/adoptablesearch/css/styles.css&authkey={found}&recAmount=&detailsInPopup=No&featuredPet=Include&stageID=&wmode=opaque"
     driver.get(petango_url)
     # extract dog info
     dogs = driver.find_elements_by_tag_name("td")
